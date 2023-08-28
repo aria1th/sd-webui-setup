@@ -1,0 +1,1 @@
+for /f "delims=" %%i in (extensions.txt) do git clone %%i
