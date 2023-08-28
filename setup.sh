@@ -13,6 +13,7 @@ python_command=python3.10
 if ! command -v $python_command &> /dev/null
 then
     python_command=python3
+    echo "python3.10 not found, using python3"
 fi
 
 # read and extend webui-user-args.txt to at the end of webui-user.sh
@@ -20,9 +21,10 @@ fi
 while read -r line; do
     # append line to webui-user.sh
     echo $line >> webui-user.sh
+    echo "Copying $line to webui-user.sh"
 done < ../webui-user-args.txt
 
-echo 'python_cmd=$python_command' >> webui-user.sh
+echo 'python_cmd='$python_command >> webui-user.sh
 
 # clone required repositories to stable-diffusion-webui/extensions/
 
@@ -43,7 +45,7 @@ cd ..
 # now at stable-diffusion-webui/
 
 # download models to stable-diffusion-webui/models/Stable-diffusion/
-# read from models.txt 
+# read from sd-models.txt 
 # <url> <optional_model_name>
 
 while read -r line; do
@@ -55,7 +57,7 @@ while read -r line; do
     else
         wget -O models/Stable-diffusion/${ADDR[1]} ${ADDR[0]}
     fi
-done < ../models.txt
+done < ../sd-models.txt
 
 # run webui.sh
 ./webui.sh
