@@ -20,7 +20,7 @@ fi
 while read -r line; do
     # append line to webui-user.sh
     echo $line >> webui-user.sh
-done < webui-user-args.txt
+done < ../webui-user-args.txt
 
 echo 'python_cmd=$python_command' >> webui-user.sh
 
@@ -35,11 +35,12 @@ cd extensions
 # clone, read from extensions.txt
 while read -r line; do
     git clone $line
-done < ../extensions.txt
+done < ../../extensions.txt
 
 
 # finally
 cd ..
+# now at stable-diffusion-webui/
 
 # download models to stable-diffusion-webui/models/Stable-diffusion/
 # read from models.txt 
@@ -54,7 +55,8 @@ while read -r line; do
     else
         wget -O models/Stable-diffusion/${ADDR[1]} ${ADDR[0]}
     fi
-done < models.txt
+done < ../models.txt
 
 # run webui.sh
 ./webui.sh
+# then
