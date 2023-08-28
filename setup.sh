@@ -17,14 +17,12 @@ then
 fi
 
 # read and extend webui-user-args.txt to at the end of webui-user.sh
-# readlines from webui-user-args.txt
+# readlines from ../webui-user-args.txt
 while read -r line; do
-    # append line to webui-user.sh
     echo $line >> webui-user.sh
-    echo "Copying $line to webui-user.sh"
 done < ../webui-user-args.txt
 
-echo 'python_cmd='$python_command >> webui-user.sh
+echo 'python_cmd="'$python_command'"' >> webui-user.sh
 
 # clone required repositories to stable-diffusion-webui/extensions/
 
