@@ -16,11 +16,9 @@ then
     echo "python3.10 not found, using python3"
 fi
 
-# read and extend webui-user-args.txt to at the end of webui-user.sh
-# readlines from ../webui-user-args.txt
-while read -r line; do
-    echo $line >> webui-user.sh
-done < ../webui-user-args.txt
+# extend webui-user-args.txt to at the end of webui-user.sh
+# from ../webui-user-args.txt
+cat ../webui-user-args.txt >> webui-user.sh
 
 echo 'python_cmd="'$python_command'"' >> webui-user.sh
 
