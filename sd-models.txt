@@ -1,0 +1,1 @@
+https://civitai.com/api/download/models/28562 anylora.safetensors
