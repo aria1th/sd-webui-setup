@@ -18,9 +18,9 @@ fi
 
 # extend webui-user-args.txt to at the end of webui-user.sh
 # from ../webui-user-args.txt
-cat ../webui-user-args.txt >> webui-user.sh
+cat ../webui-user-args.txt >> webui-user.sh 
 
-echo 'python_cmd="'$python_command'"' >> webui-user.sh
+cat 'python_cmd="'$python_command'"' >> webui-user.sh
 
 # clone required repositories to stable-diffusion-webui/extensions/
 
@@ -56,5 +56,5 @@ while read -r line; do
 done < ../sd-models.txt
 
 # run webui.sh
-./webui.sh
+# ./webui.sh
 # then
