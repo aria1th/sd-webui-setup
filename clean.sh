@@ -1,3 +1,5 @@
 # cleanup local stable-diffusion-webui folder
-
-rm -rf stable-diffusion-webui
+# check if folder exists
+if [ -d "./stable-diffusion-webui" ]; then
+    rm -rf ./stable-diffusion-webui
+fi
