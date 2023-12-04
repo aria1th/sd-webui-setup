@@ -4,7 +4,6 @@ cd stable-diffusion-webui
 # switch branch to origin/dev
 git checkout origin/dev
 # match to commit https://github.com/AUTOMATIC1111/stable-diffusion-webui/commit/ad266d795e08f8316e2a60566513f7115b7407d5
-git checkout ad266d795e08f8316e2a60566513f7115b7407d5
 
 # find python command to create venv
 # from python3.11 to python3.10, else, use python3 
@@ -15,6 +14,11 @@ then
     python_command=python3
     echo "python3.10 not found, using python3"
 fi
+
+# create venv
+$python_command -m venv venv
+# activate venv
+source venv/bin/activate
 
 # extend webui-user-args.txt to at the end of webui-user.sh
 # from ../webui-user-args.txt
